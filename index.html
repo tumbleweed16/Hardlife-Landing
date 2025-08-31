@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hardlife Apparel Company | The Original Since 2006</title>
+  
+  <style>
+    :root {
+      --primary-black: #000000;
+      --primary-red: #E63946;
+      --primary-white: #FFFFFF;
+      --gray: #AAAAAA;
+      --dark-gray: #333333;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: var(--primary-black);
+      color: var(--primary-white);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+    }
+    
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 25% 25%, rgba(255,255,255,0.02) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(230,57,70,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    .main-title {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      color: var(--primary-white);
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+      animation: fadeInUp 1s ease-out;
+      font-weight: 700;
+    }
+    
+    .tagline {
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      color: var(--primary-white);
+      margin-bottom: 3rem;
+      font-weight: 300;
+      max-width: 600px;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 2.2rem;
+      color: var(--primary-white);
+      text-decoration: none;
+      border: 3px solid var(--primary-white);
+      padding: 1rem 3rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      margin: 2rem 0;
+      animation: fadeInUp 1s ease-out 0.4s both;
+      position: relative;
+      overflow: hidden;
+      font-weight: 600;
+    }
+    
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--primary-white);
+      transition: left 0.3s ease;
+      z-index: -1;
+    }
+    
+    .cta-button:hover::before {
+      left: 0;
+    }
+    
+    .cta-button:hover {
+      color: var(--primary-black);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255,255,255,0.3);
+    }
+    
+    .quote {
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      color: var(--primary-white);
+      font-style: italic;
+      margin-top: 2rem;
+      animation: fadeInUp 1s ease-out 0.6s both;
+    }
+    
+    .countdown-container {
+      margin-top: 2rem;
+      animation: fadeInUp 1s ease-out 0.8s both;
+    }
+    
+    .countdown-title {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1.5rem;
+      color: var(--primary-white);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .countdown {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 2rem;
+      color: var(--primary-white);
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+      font-weight: 600;
+    }
+    
+    .footer {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--gray);
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      .cta-button {
+        padding: 0.8rem 2rem;
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="main-title">HARDLIFE APPAREL COMPANY</h1>
+    <p class="tagline">There is Only One, The Original Since 2006</p>
+    
+    <a href="https://www.tiktok.com/@hardlifeapparelco" class="cta-button" id="shopButton">
+      SHOP NOW
+    </a>
+    
+    <p class="quote">Nothing Awesome Comes Easy</p>
+    
+    <div class="countdown-container">
+      <div class="countdown-title">NEXT DROP IN:</div>
+      <div class="countdown" id="countdown">Loading...</div>
+    </div>
+    
+    <div class="footer">
+      © 2025 Hardlife Apparel Company. All rights reserved.
+    </div>
+  </div>
+
+  <script>
+    // Only attach event listeners after DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      function initCountdown() {
+        const launchDate = new Date();
+        launchDate.setDate(launchDate.getDate() + 14);
+        launchDate.setHours(0, 0, 0, 0);
+
+        function updateCountdown() {
+          const now = new Date();
+          const diff = launchDate - now;
+
+          if (diff <= 0) {
+            document.getElementById("countdown").innerHTML = "NOW LIVE!";
+            return;
+          }
+
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+          document.getElementById("countdown").innerHTML = 
+            `${days}d ${hours}h ${mins}m ${secs}s`;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+
+      document.getElementById('shopButton').addEventListener('click', function() {
+        console.log('Shop Now button clicked');
+      });
+
+      initCountdown();
+      console.log('Hardlife landing page loaded');
+    });
+  </script>
+</body>
+</html>
